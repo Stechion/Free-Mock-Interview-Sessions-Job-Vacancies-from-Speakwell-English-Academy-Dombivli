@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="googlesheet.css">
+    <title></title>
+</head>
+<style>
+	
+	*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'poppins', sans-serif;
+	font-size: 18px;
+}
+body{
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/*.container{
+	height: 50px;
+	width: 800px;
+	padding: 30px;
+	border: 1px solid #e22828;
+	border-radius: 10px;
+	background-color: #003b5b;
+	margin-top: 100px;
+	
+}
+h4{
+	margin-bottom: 10px;
+	font-size: 64px;
+	color: white;
+}
+input{
+	font-size: 45px;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+textarea{
+	width: 100%;
+	padding: 10px;
+	font-size: 45px;
+}
+#submit{
+	border: none;
+	background-color: orangered;
+	color: white;
+	width: 300px;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+#submit:hover{
+	background-color: #333333;
+}
+
+
+  */
+
+</style>
+<body>
+
+	<div class="container">
+		<form method="post" action="https://script.google.com/macros/s/AKfycbymXZ_BBO9SokblOJUd-Dwt3Yc5r0PU0TI0JxZC_df4_ukmJCzYw9D6i9xb4P1AhcAG/exec" name="contact-form">
+			<h4>Contact Us</h4>
+			<input type="text" name="your-name" placeholder="Name">
+			<input type="text" name="your-number" placeholder="Number">
+			<input type="email" name="your-email" placeholder="Email">
+			<textarea name="message" rows="7" placeholder="Your Message"></textarea>
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+  <a href="./index.html"><img id="m1" src="reject-vector-icon-illustration-design_535345-7353.jpg"></a>
+	
+ 
+	<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbymXZ_BBO9SokblOJUd-Dwt3Yc5r0PU0TI0JxZC_df4_ukmJCzYw9D6i9xb4P1AhcAG/exec'
+
+        const form = document.forms['contact-form']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => alert("Thank you! your form is submitted successfully." ))
+       .then(() => { window.location.reload(); })
+       .catch(error => console.error('Error!', error.message))
+      })
+	</script>
+</body>
+</html>
